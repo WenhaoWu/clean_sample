@@ -24,7 +24,7 @@ class NewsViewModel(
 
     fun fetchNews() {
         val disposable = getNewsUseCase.getNews()
-            .flatMap { mapper.Flowable(it) }
+            .flatMap { mapper.flowable(it) }
             .subscribe({ response ->
                 Log.d(TAG, "On Next Called")
                 mNews.value = Data(responseType = Status.SUCCESSFUL, data = response)

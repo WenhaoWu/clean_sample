@@ -18,9 +18,8 @@ class NewsEntityMapper : Mapper<NewsSourcesEntity, NewsSources>() {
     private fun mapArticleToPresentation(response: NewsPublisherEntity): NewsPublisher =
         NewsPublisher(
             id = response.id,
-            name = response.name,
+            title = response.title,
             description = response.description,
-            url = response.url,
-            category = response.category
+            url = response.url
         )
 }

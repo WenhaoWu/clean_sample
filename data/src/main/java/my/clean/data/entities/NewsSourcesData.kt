@@ -26,9 +26,8 @@ class NewsDataEntityMapper {
 
     fun mapArticleToEntity(response: NewsPublisherData): NewsPublisherEntity = NewsPublisherEntity(
         id = response.id,
-        name = response.name,
-        description = response.url,
-        category = response.category
+        title = response.title,
+        description = response.description
     )
 }
 
@@ -44,10 +43,9 @@ class NewsEntityDataMapper {
 
     fun mapArticleToEntity(response: NewsPublisherEntity): NewsPublisherData = NewsPublisherData(
         id = response.id,
-        name = response.name,
+        title = response.title,
         description = response.description,
-        url = response.url,
-        category = response.category
+        url = response.url
     )
 
 }

@@ -22,6 +22,7 @@ class NewsActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recycler_view.adapter = listAdapter
+
         newsList.fetchNews()
     }
 
