@@ -1,14 +1,17 @@
 package my.clean.data.entities
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import my.clean.domian.entities.MovieEntity
+import java.util.*
 
 @Entity(tableName = "movies")
 data class MovieData(
-    @PrimaryKey(autoGenerate = true)
-    var id: String? = null,
+    @PrimaryKey
+    @NonNull
+    var id: String,
     @SerializedName("posterPath")
     var posterPath: String? = null,
     @SerializedName("title")
@@ -37,7 +40,7 @@ class MovieDataEntityMapper {
 
 class MovieEntityDataMapper {
     fun mapToData(entity: MovieEntity): MovieData = MovieData(
-        id = entity.id,
+        id = entity.id ?: UUID.randomUUID().toString(),
         posterPath = entity.posterPath,
         title = entity.title,
         tagLine = entity.tagLine,

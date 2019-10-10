@@ -14,11 +14,11 @@ class App : Application() {
         startKoin(
             this,
             listOf(
-                mNetworkModules,
-                mViewModels,
-                mRepositoryModules,
-                mUseCaseModules,
-                mLocalModules
+                mMoviesNetworkModules,
+                mMoviesViewModels,
+                mMoviesRepositoryModule,
+                mMoviesUseCaseModules,
+                mMoviesLocalModules
             )
 
         )
