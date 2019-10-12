@@ -10,6 +10,7 @@ class MoviesRemoteImpl constructor(private val api: RemoteMoviesApi) : MoviesDat
 
     override fun getMovies(): Flowable<List<MovieEntity>> {
         return api.getMovies()
+            .map { it.results }
             .flatMapIterable { it }
             .map { mapper.mapToEntity(it) }
             .toList()
