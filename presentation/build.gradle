@@ -16,7 +16,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField("String", "API_KEY", "\"scdscdsdcsdcsdcsdcsdcsdcsd\"")
+
+        Properties properties = new Properties()
+        def propertiesFile = project.rootProject.file('local.properties')
+        if (propertiesFile.exists()) {
+            properties.load(propertiesFile.newDataInputStream())
+        }
+        ext.apiToken = properties.getProperty('api.token')
+        buildConfigField "String", "API_KEY", "\"${ext.apiToken}\""
     }
     buildTypes {
         release {
